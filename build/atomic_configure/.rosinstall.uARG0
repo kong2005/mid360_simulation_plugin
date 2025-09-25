@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/root/ros_noetic/mid_ws/devel/setup.sh

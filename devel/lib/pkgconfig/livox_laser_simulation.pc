@@ -1,0 +1,8 @@
+prefix=/home/root/ros_noetic/mid_ws/devel
+
+Name: livox_laser_simulation
+Description: Description of livox_laser_simulation
+Version: 0.0.0
+Cflags: -I/home/root/ros_noetic/mid_ws/devel/include -I/home/root/ros_noetic/mid_ws/src/mid360_simulation_plugin/livox_laser_simulation/include
+Libs: -L${prefix}/lib -llivox_laser_simulation
+Requires: tf

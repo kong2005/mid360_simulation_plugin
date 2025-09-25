@@ -1,0 +1,2 @@
+mid360_simulation_plugin/livox_laser_simulation
+-DCATKIN_DEVEL_PREFIX=/home/root/ros_noetic/mid_ws/devel -DCMAKE_INSTALL_PREFIX=/home/root/ros_noetic/mid_ws/install -G Unix Makefiles
