@@ -1,0 +1,33 @@
+<launch>
+    <!-- UAV model -->
+    <arg name="UAV_model" value="$(find livox_laser_simulation)/models/sensors_only/model.sdf" />
+    <!-- Initial position -->
+    <arg name="x" value="0" />
+    <arg name="y" value="0" />
+    <arg name="z" value="0" />
+
+    <!-- World file -->
+    <arg name="world" default="$(find livox_laser_simulation)/worlds/test_livox.world" />
+
+    <!-- Unique model name using HOSTNAME + coordinates -->
+    <arg name="model_name" default="iris_demo_$(env HOSTNAME)_$(arg x)_$(arg y)_$(arg z)"/>
+
+    <!-- Launch Gazebo empty world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world)"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="true"/>
+    </include>
+
+    <!-- Launch RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find livox_laser_simulation)/rviz/test_pattern.rviz" />
+
+    <!-- Spawn the UAV with unique model name -->
+    <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-file $(arg UAV_model) -x $(arg x) -y $(arg y) -z $(arg z) -sdf -model $(arg model_name)" />
+</launch>
+

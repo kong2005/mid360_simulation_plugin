@@ -1,0 +1,6 @@
+<launch>
+  <!-- 启动 Gazebo 并加载 mid360.world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find livox_laser_simulation)/worlds/mid360.world"/>
+  </include>
+</launch>
